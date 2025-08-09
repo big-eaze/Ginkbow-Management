@@ -1,0 +1,55 @@
+/* General container styling */
+.student-exams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exams-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.exams-heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Exams list styling */
+.exams-list {
+  list-style: none;
+  padding: 0;
+}
+
+.exam-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.exam-item h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.exam-item p {
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .exams-container {
+    width: 90%;
+  }
+
+  
+}

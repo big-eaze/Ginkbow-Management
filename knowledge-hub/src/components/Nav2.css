@@ -1,0 +1,118 @@
+/* Sidebar Container */
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 100%;
+  background-color: #ffffff; /* Light background */
+  color: #333333; /* Dark text for readability */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+}
+
+/* Active and Inactive States */
+.active-nav {
+  transform: translateX(0);
+}
+
+.inactive-nav {
+  transform: translateX(-100%);
+}
+
+/* Header Section */
+.nav-header {
+  padding: 20px;
+  background-color: #f5f5f5; /* Light gray background */
+  text-align: center;
+  border-bottom: 1px solid #ddd; /* Subtle divider */
+}
+
+.nav-title {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-title h1 {
+  font-size: 18px;
+  margin: 0;
+  color: #333333; /* Dark text */
+}
+
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  color: #888888; /* Subtle icon color */
+}
+
+.nav-subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.nav-subtitle h2 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #666666; /* Medium gray text */
+}
+
+/* Navigation Section */
+.nav-section {
+  padding: 20px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 15px;
+}
+
+/* Navigation Links */
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333333; /* Dark text */
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: #838383;
+  color: white;
+  transform: scale(1.05);
+}
+
+.nav-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.nav-text {
+  font-size: 16px;
+}
+
+/* Active Navigation Item */
+.active-nav-item .nav-link {
+  background-color: #333; 
+  color: #ffffff; /* White text */
+  font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 750px) {
+  .nav-container {
+    width: 300px; /* Adjust sidebar width for smaller screens */
+  }
+}

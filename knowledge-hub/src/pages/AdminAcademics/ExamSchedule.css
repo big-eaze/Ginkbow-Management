@@ -1,0 +1,165 @@
+.exam-timetable-container {
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exam-timetable-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Style for each class section */
+.class-section {
+  margin-bottom: 30px; /* Add spacing between class sections */
+  padding: 20px; /* Add padding around the section */
+  border: 1px solid #ddd; /* Add a light border */
+  border-radius: 8px; /* Round the corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style for the class header */
+.class-header {
+  font-size: 20px; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Dark text color */
+  margin-bottom: 15px; /* Add spacing below the header */
+  text-transform: uppercase; /* Make the text uppercase */
+  border-bottom: 2px solid #007bff; /* Add a blue underline */
+  padding-bottom: 5px; /* Add padding below the text */
+}
+
+/* Style for the exam timetable table */
+.exam-timetable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.exam-timetable th,
+.exam-timetable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.exam-timetable th {
+  background-color: #6a0dad;
+  color: white;
+}
+
+.exam-timetable td {
+  background-color: #ffffff;
+}
+
+.delete-exam-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-exam-btn:hover {
+  background-color: #e60000;
+}
+
+.add-exam-section {
+  display: flex;
+  justify-content: center;;
+  margin-top: 10px;
+}
+.add-exam-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.add-exam-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.add-exam-btn {
+  padding: 10px 20px;
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-exam-btn:hover {
+  background-color: black;
+}
+
+.send-timetable-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #24b6f0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%; /* Make it span the width */
+  text-align: center;
+}
+
+.send-timetable-btn:hover {
+  background-color: #1a8cd8;
+}
+
+.send-timetable-btn:active {
+  transform: scale(0.95); /* Add a slight click effect */
+}
+
+@media (max-width: 1120px) {
+  .add-exam-section {
+    flex-direction: column;
+  }
+  .send-timetable-btn {
+    max-width: 150px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .exam-timetable-container {
+    margin: 0 auto;
+  }
+  .add-exam-form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .exam-timetable th, .exam-timetable td {
+    font-size: 10px;
+  }
+  .delete-exam-btn {
+    font-size: 10px;
+  }
+  .exam-timetable-container h2  {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .exam-timetable th, .exam-timetable td {
+    font-size: 8px;
+  }
+  .delete-exam-btn {
+    font-size: 8px;
+  }
+  .exam-timetable-container{
+    padding: 5px;
+  }
+}

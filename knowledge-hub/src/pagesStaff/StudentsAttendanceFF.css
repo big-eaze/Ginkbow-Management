@@ -1,0 +1,115 @@
+/* General Container */
+.att-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.att-heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+
+/* Date Picker */
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.date-picker label {
+  font-size: 16px;
+  margin-right: 10px;
+  color: #333;
+}
+
+.date-picker input[type="date"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Attendance Table */
+.att-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.att-table th,
+.att-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.att-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+}
+
+.att-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.att-table td {
+  color: #555;
+}
+
+/* Status Buttons */
+.status-button {
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.status-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.status-button.present {
+  background-color: #2ecc71;
+}
+
+.status-button.absent {
+  background-color: #e74c3c;
+}
+
+.status-button.active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 554px) {
+  .status-button {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .att-table th,
+  .att-table td {
+    padding: 6px;
+  }
+}
+
