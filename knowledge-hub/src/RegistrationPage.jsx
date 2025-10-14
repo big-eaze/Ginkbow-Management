@@ -1,32 +1,23 @@
 import { Link } from 'react-router-dom';
-import "./RegistrationPage.css";
 import React, { Fragment, useState } from 'react';
 import axios from './Utils/axios.js';
 
-function RegisterationPage() {
-
+function RegistrationPage() {
   const [userRole, setUserRole] = useState("");
 
-  function handleRoleSelection(e) {
-    setUserRole(e.target.value);
-  }
+  const handleRoleSelection = (e) => setUserRole(e.target.value);
 
   async function handleSignUp(e) {
     e.preventDefault();
-
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await axios.post("/auth/signup", {
-        ...data,
-      }, {
-        headers: {
-          "content-type": "application/json"
-        },
-      });
-
-      console.log(response.data);
+      const response = await axios.post(
+        "/auth/signup",
+        { ...data },
+        { headers: { "content-type": "application/json" } }
+      );
       const { token, user } = response.data;
       localStorage.setItem("token", token);
       localStorage.setItem("role", user.role);
@@ -34,11 +25,12 @@ function RegisterationPage() {
 
       alert("Registration successful");
 
-      // Redirect after successful signup
-      window.location.href = userRole === "admin" ? "/ad-dashboard"
-        : userRole === "student" ? "/st-dashboard"
-          : "/ff-dashboard";
-
+      window.location.href =
+        userRole === "admin"
+          ? "/ad-dashboard"
+          : userRole === "student"
+            ? "/st-dashboard"
+            : "/ff-dashboard";
     } catch (error) {
       console.error("Signup Error:", error?.response?.data || error.message);
       alert(error?.response?.data?.message || "Registration failed");
@@ -46,56 +38,146 @@ function RegisterationPage() {
   }
 
   return (
-    <div className="reg-container">
-      <div className='reg-body'>
-        <form className='reg-form' onSubmit={handleSignUp}>
-          <div className='reg-form-select'>
-            <select defaultValue="" data-testid="role-selection" onChange={handleRoleSelection}>
-              <option className="select-role" value="" disabled hidden>select role</option>
-              <option value="admin">Admin</option>
-              <option value="student">Student</option>
-              <option value="staff">Staff</option>
-            </select>
-            <Fragment>
-              {userRole && (
-                <>
-                  <input type="hidden" name="role" value={userRole} />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      <div className="w-full max-w-md bg-[#11182799] backdrop-blur-md rounded-2xl shadow-xl p-8 relative border border-gray-200 dark:border-gray-800">
 
-                  <input type="text" id="firstname" name="firstName" placeholder="First-Name" required />
-                  <input type="text" id="lastname" name="lastName" placeholder="Last-Name" required />
-                  <input type="text" id="username" name="username" placeholder='Username' required />
+        {/* Title */}
+        <h2 className="text-2xl font-semibold text-[#22d3ee] text-center mb-6  tracking-wide">
+          GINKBOW INNOVATION
+        </h2>
 
-                  {userRole !== "student" && <input type="email" id="email" name="email" placeholder='Email' required />}
+        {/* Registration Form */}
+        <form className="space-y-5" onSubmit={handleSignUp}>
+          <select
+            defaultValue=""
+            onChange={handleRoleSelection}
+            className="w-full px-4 py-3 bg-gray-400 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400 "
+          >
+            <option value="" disabled hidden>
+              Select role
+            </option>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
+            <option value="staff">Staff</option>
+          </select>
 
+          <Fragment>
+            {userRole && (
+              <>
+                <input type="hidden" name="role" value={userRole} />
+
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400  "
+                />
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
+                />
+
+                {userRole !== "student" && (
                   <input
-                    type="text"
-                    id={userRole === "admin" ? "adminId" : userRole === "student" ? "admissionNumber" : "staffId"}
-                    data-testid={userRole === "admin" ? "adminId" : userRole === "student" ? "admissionNumber" : "staffId"}
-                    name={userRole === "admin" ? "adminId" : userRole === "student" ? "admissionNumber" : "staffId"}
-                    placeholder={userRole === "admin" ? "adminId" : userRole === "student" ? "admissionNumber" : "staffId"}
+                    type="email"
+                    name="email"
+                    placeholder="Email"
                     required
+                    className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
                   />
+                )}
 
-                  {userRole === "staff" && (
-                    <>
-                      <input type='text' data-testid="staff-role" id='class' name='class' placeholder='class' required />
-                      <input type='text' data-testid="staff-role" id='subject' name="subject" placeholder='subject' required />
-                    </>
-                  )}
+                <input
+                  type="text"
+                  name={
+                    userRole === "admin"
+                      ? "adminId"
+                      : userRole === "student"
+                        ? "admissionNumber"
+                        : "staffId"
+                  }
+                  placeholder={
+                    userRole === "admin"
+                      ? "Admin ID"
+                      : userRole === "student"
+                        ? "Admission Number"
+                        : "Staff ID"
+                  }
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
+                />
 
-                  <input type="password" id="password" name="password" placeholder='Password' required />
-                  <input type="password" id="confirmPassword" name="confirmPassword" placeholder='confirm password' required />
-                </>
-              )}
-            </Fragment>
-          </div>
-          <button data-testid="registration-btn" className='reg reg-btn' type='submit'>REGISTER</button>
+                {userRole === "staff" && (
+                  <>
+                    <input
+                      type="text"
+                      name="class"
+                      placeholder="Class"
+                      required
+                      className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
+                    />
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder="Subject"
+                      required
+                      className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
+                    />
+                  </>
+                )}
+
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400 "
+                />
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  required
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition text-gray-400"
+                />
+              </>
+            )}
+          </Fragment>
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-[#22d3ee] hover:bg-[#22d3ee]/80 text-white rounded-lg font-semibold shadow-md transition-all duration-300"
+          >
+            Register
+          </button>
         </form>
-        <button className="signin-btn" onClick={() => window.location.href = "/"}>Sign In</button>
-        <h2 className='school'>GINKBOW INNOVATION</h2>
+
+        {/* Sign In */}
+        <button
+          onClick={() => (window.location.href = "/")}
+          className="w-full mt-4 py-2 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
+        >
+          Sign In
+        </button>
+
+        {/* Subtle Footer */}
+        <p className="text-center mt-6 text-xs text-gray-500 dark:text-gray-400 tracking-wide">
+          © {new Date().getFullYear()} Ginkbow Innovation
+        </p>
       </div>
     </div>
   );
 }
 
-export default RegisterationPage;
+export default RegistrationPage;

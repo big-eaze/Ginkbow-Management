@@ -1,6 +1,6 @@
 import React from "react";
 import ChangePassword from "../components/ChangePassword";
-import { StaffNavItems} from "../data/navItems";
+import { StaffNavItems } from "../data/navItems";
 
 
 function StaffChangePassword() {

@@ -43,6 +43,51 @@ router.get("/:staffId", requireRole("admin"), async (req, res) => {
   }
 });
 
+
+
+// @route   POST /api/staff
+// @desc    Add a new staff member
+// @access  Private
+router.post("/", requireRole("admin"), async (req, res) => {
+  try {
+    const { staffId, name, subject, class: staffClass, email, phone, gender } = req.body;
+
+    // Validation
+    if (!staffId || !name || !subject || !staffClass || !gender || !phone) {
+      return res.status(400).json({ message: "Please fill in all required fields." });
+    }
+
+    // Check for duplicate staff ID
+    const existingStaff = await Staff.findOne({ where: { staffId } });
+    if (existingStaff) {
+      return res.status(409).json({ message: "Staff ID already exists." });
+    }
+
+    // Create new staff record
+    const newStaff = await Staff.create({
+      staffId,
+      name,
+      subject,
+      class: staffClass,
+      email,
+      phone,
+      gender,
+    });
+
+    const totalStaff = await Staff.count();
+
+    res.status(201).json({
+      message: "Staff member added successfully.",
+      staff: newStaff,
+      totalStaff,
+    });
+  } catch (error) {
+    console.error("Error adding staff:", error);
+    res.status(500).json({ message: "Error adding staff member", error: error.message });
+  }
+});
+
+
 // @route   POST /api/staff
 // @desc    Add a new staff member
 // @access  Private
