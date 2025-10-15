@@ -148,7 +148,7 @@ function StaffDashboard() {
           <div className="flex flex-col items-start">
             <button
               onClick={() => setDisplayMenu(true)}
-              className="p-2 rounded-lg bg-gray-800/70 hover:bg-gray-700 transition mb-6"
+              className="p-2 lg:hidden rounded-lg bg-gray-800/70 hover:bg-gray-700 transition mb-6"
             >
               <FiMenu className="w-5 h-5 text-cyan-400" />
             </button>
