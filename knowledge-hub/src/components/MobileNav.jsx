@@ -27,12 +27,12 @@ export default function NavMobile({ navItems, subtitle }) {
       {/* Overlay — mobile only */}
       <div
         onClick={() => setDisplayMenu(false)}
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 lg:hidden
           ${displayMenu ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}`}
       />
 
       <aside
-        className={`fixed  outline outline-2 outline-blue-400 top-0 left-0 h-full w-72 sm:w-80 z-50 md:hidden
+        className={`fixed  top-0 left-0 h-full w-72 sm:w-80 z-50 lg:hidden
           text-slate-100
           bg-gradient-to-b from-[#08101b]/90 via-[#091224]/85 to-[#030d15]/90
           backdrop-blur-2xl border-r border-white/10 shadow-[0_0_15px_rgba(6,182,212,0.15)]`}
@@ -42,7 +42,7 @@ export default function NavMobile({ navItems, subtitle }) {
         <header className="flex flex-col items-center justify-center px-6 py-6 border-b border-white/10">
           <div className="relative w-full flex justify-center items-center">
             <h1 className="text-2xl font-semibold tracking-wide bg-gradient-to-r from-cyan-400 to-indigo-500 bg-clip-text text-transparent">
-              GinkBow
+              Aurora
             </h1>
 
             <FaTimes

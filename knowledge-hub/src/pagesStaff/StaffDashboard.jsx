@@ -142,7 +142,7 @@ function StaffDashboard() {
       {displayMenu && (<NavMobile navItems={StaffNavItems} subtitle="Staff Analytics" />)}
 
       {/* Main */}
-      <main className="lg:ml-80 w-full p-6 overflow-auto">
+      <main className="lg:ml-80 w-full p-2 sm:p-6 md:p-8 overflow-auto">
         {/* Header */}
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div className="flex flex-col items-start">

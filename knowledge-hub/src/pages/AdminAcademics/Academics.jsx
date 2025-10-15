@@ -88,7 +88,7 @@ function Academics() {
               {classTotalNumber.map((course, index) => (
                 <li
                   key={index}
-                  className="flex justify-between py-3 hover:bg-gray-50 dark:hover:bg-neutral-800 rounded-lg px-2 transition"
+                  className="flex justify-between py-3 hover:bg-cyan-600 rounded-lg px-2 transition"
                 >
                   <span className="font-medium">{course.class}</span>
                   <span className="text-gray-500 dark:text-gray-400">

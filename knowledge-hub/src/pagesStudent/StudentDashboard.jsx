@@ -112,12 +112,12 @@ function StudentDashboard() {
       <Nav2 navItems={studentNavItems} subtitle="Student Panel" />
       {displayMenu && (<NavMobile navItems={studentNavItems} subtitle="Student Panel" />)}
       {/* Main */}
-      <main className="lg:ml-80 p-6 w-full min-h-screen">
+      <main className="lg:ml-80 p-2 sm:p-6 md:p-8 w-full min-h-screen">
         <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div className="flex flex-col items-start">
             <button
               onClick={() => setDisplayMenu(true)}
-              className="p-2 rounded-lg bg-gray-800/70 hover:bg-gray-700 transition mb-6"
+              className="p-2 lg:hidden rounded-lg bg-gray-800/70 hover:bg-gray-700 transition mb-6"
             >
               <FiMenu className="w-5 h-5 text-cyan-400" />
             </button>

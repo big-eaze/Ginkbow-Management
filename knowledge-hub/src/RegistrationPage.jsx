@@ -43,7 +43,7 @@ function RegistrationPage() {
 
         {/* Title */}
         <h2 className="text-2xl font-semibold text-[#22d3ee] text-center mb-6  tracking-wide">
-          GINKBOW INNOVATION
+          Aurora INNOVATION
         </h2>
 
         {/* Registration Form */}
@@ -173,7 +173,7 @@ function RegistrationPage() {
 
         {/* Subtle Footer */}
         <p className="text-center mt-6 text-xs text-gray-500 dark:text-gray-400 tracking-wide">
-          © {new Date().getFullYear()} Ginkbow Innovation
+          © {new Date().getFullYear()} Aurora Innovation
         </p>
       </div>
     </div>
